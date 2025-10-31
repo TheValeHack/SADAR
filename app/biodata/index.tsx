@@ -1,4 +1,5 @@
 import { LearningTypeSelector } from "@/components/biodata/LearningTypeSelector";
+import AppButton from "@/components/global/AppButton";
 import AppPickerInput from "@/components/global/AppPickerInput";
 import { AppText } from "@/components/global/AppText";
 import AppTextInput from "@/components/global/AppTextInput";
@@ -63,15 +64,11 @@ export default function BiodataPage() {
           </AppText>
           <LearningTypeSelector onSelect={(val) => setLearningType(val)} />
 
-          <AppText className="mb-6 text-base text-primary-pr60 underline text-center">
+          <AppText className="text-base text-primary-pr60 underline text-center">
             aku belum tahu tipe belajarku
           </AppText>
 
-          <View className="w-full py-3 bg-primary-pr30 mt-2 mb-1 rounded-full border-neutral-nr90 border mr-5">
-            <AppText className="text-xl font-outfitSemiBold text-center">
-              Masuk
-            </AppText>
-          </View>
+          <AppButton className="mt-8">Masuk</AppButton>
         </View>
       </View>
 
