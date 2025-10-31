@@ -19,9 +19,11 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.thevale.SADAR"
     },
     "web": {
+      "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
@@ -38,11 +40,39 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/outfit/100Thin/Outfit_100Thin.ttf",
+            "node_modules/@expo-google-fonts/outfit/200ExtraLight/Outfit_200ExtraLight.ttf",
+            "node_modules/@expo-google-fonts/outfit/300Light/Outfit_300Light.ttf",
+            "node_modules/@expo-google-fonts/outfit/400Regular/Outfit_400Regular.ttf",
+            "node_modules/@expo-google-fonts/outfit/500Medium/Outfit_500Medium.ttf",
+            "node_modules/@expo-google-fonts/outfit/600SemiBold/Outfit_600SemiBold.ttf",
+            "node_modules/@expo-google-fonts/outfit/700Bold/Outfit_700Bold.ttf",
+            "node_modules/@expo-google-fonts/outfit/800ExtraBold/Outfit_800ExtraBold.ttf",
+            "node_modules/@expo-google-fonts/outfit/900Black/Outfit_900Black.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-asset",
+        {
+          "assets": ["./assets/images"]
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b976aa72-f124-4189-8023-9d483bea09bd"
+      }
     }
   }
 }
