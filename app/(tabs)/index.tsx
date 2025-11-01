@@ -5,9 +5,11 @@ import SectionHeader from "@/components/home/SectionHeader";
 import WelcomeHeader from "@/components/home/WelcomeHeader";
 import Layout from "@/components/layout/Layout";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import { View } from "react-native";
 
 export default function HomePage() {
+  const router = useRouter();
   const progressItems = [
     {
       id: 1,
@@ -54,7 +56,7 @@ export default function HomePage() {
       <View className="ps-8 z-20">
         <WelcomeHeader name="Irfan Valerian" />
 
-        <SectionHeader title="Dalam Progress" onPress={() => {}} />
+        <SectionHeader title="Dalam Progress" onPress={() => router.navigate("/ceritaku")} />
         <View className="mt-6">
           <HorizontalList>
             {progressItems.map((item) => (
@@ -63,7 +65,7 @@ export default function HomePage() {
           </HorizontalList>
         </View>
 
-        <SectionHeader className="mt-8" title="Kelas yang Baru Diakses" onPress={() => {}} />
+        <SectionHeader className="mt-8" title="Kelas yang Baru Diakses" onPress={() => router.navigate("/kelas")} />
         <View className="mt-6">
           <HorizontalList>
             {recentClasses.map((kelas) => (
