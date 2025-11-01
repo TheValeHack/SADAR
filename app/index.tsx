@@ -1,7 +1,7 @@
-import TesTipeBelajarPage from "./tes-tipe-belajar";
+import HomePage from "./home";
 
 export default function Index() {
   return (
-    <TesTipeBelajarPage />
+    <HomePage />
   );
 }
