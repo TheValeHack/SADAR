@@ -1,27 +1,21 @@
 import { AppText } from "@/components/global/AppText";
-import ProgressItemCard from "@/components/home/ProgressItemCard";
+import ClassCard from "@/components/home/ClassCard";
 import Layout from "@/components/layout/Layout";
 import { Image } from "expo-image";
 import { View } from "react-native";
 
-export default function CeritakuPage() {
-  const progressItems = [
+export default function KelaskuPage() {
+  const recentClasses = [
     {
       id: 1,
-      title: "Ciri-ciri makhluk hidup",
-      subTitle: "Sub Tema 1",
+      title: "Perkembangan makhluk hidup",
       theme: "Tema 1",
-      timeAgo: "2 jam lalu",
-      progress: 0.45,
       thumbnail: require("@/assets/images/thumbnail1.png"),
     },
     {
       id: 2,
-      title: "Pentingnya lingkungan bersih",
-      subTitle: "Sub Tema 2",
-      theme: "Tema 1",
-      timeAgo: "5 jam lalu",
-      progress: 0.6,
+      title: "Hidup sehat dan bersih",
+      theme: "Tema 2",
       thumbnail: require("@/assets/images/thumbnail1.png"),
     },
   ];
@@ -41,21 +35,23 @@ export default function CeritakuPage() {
 
       <View className="px-8 z-20">
         <AppText className="text-3xl font-outfitSemiBold text-center">
-          Dalam Progress
+          Kelasku
         </AppText>
 
-        <View className="mt-8">
-          {progressItems.map((item) => (
-            <ProgressItemCard className="w-full mb-6" key={item.id} {...item} />
+        <View className="mt-8 flex flex-row flex-wrap justify-between">
+          {recentClasses.map((kelas) => (
+            <View key={kelas.id} className="w-[48%] mb-4">
+              <ClassCard {...kelas} />
+            </View>
           ))}
         </View>
       </View>
 
       <Image
-        source={require("@/assets/images/grass.png")}
+        source={require("@/assets/images/river.png")}
         style={{
           width: "100%",
-          height: 150,
+          height: 220,
           position: "absolute",
           bottom: 0,
           backgroundColor: "#00"

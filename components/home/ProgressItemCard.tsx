@@ -25,7 +25,7 @@ export default function ProgressItemCard({
     onPressPlay,
     }: ProgressItemCardProps) {
     return (
-        <View className={`bg-white mr-5 h-32 border border-neutral-nr40 rounded-xl flex flex-row overflow-hidden ${className}`}>
+        <View className={`bg-white h-32 border border-neutral-nr40 rounded-xl flex flex-row overflow-hidden ${className}`}>
             <View className="w-[35%] h-full relative">
                 <Image
                 source={thumbnail}

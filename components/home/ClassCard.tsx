@@ -12,7 +12,7 @@ interface ClassCardProps {
 
 export default function ClassCard({ className, thumbnail, title, theme, onPress }: ClassCardProps) {
   return (
-    <View className={`mr-5 h-72 border border-neutral-nr40 bg-white rounded-xl flex flex-col overflow-hidden ${className}`}>
+    <View className={`h-72 border border-neutral-nr40 bg-white rounded-xl flex flex-col overflow-hidden ${className}`}>
       <View className="w-full h-[45%] relative">
         <Image source={thumbnail} style={{ width: "100%", height: "100%" }} contentFit="cover" />
       </View>
