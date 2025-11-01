@@ -1,7 +1,7 @@
-import BiodataPage from "./biodata";
+import TesTipeBelajarPage from "./tes-tipe-belajar";
 
 export default function Index() {
   return (
-    <BiodataPage />
+    <TesTipeBelajarPage />
   );
 }

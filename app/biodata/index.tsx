@@ -13,7 +13,7 @@ export default function BiodataPage() {
   const [learningType, setLearningType] = useState<string | null>(null);
 
   return (
-    <Layout className="py-16 px-0">
+    <Layout className="py-16">
       <Image
         source={require("@/assets/images/cloud.png")}
         style={{
@@ -25,7 +25,7 @@ export default function BiodataPage() {
         contentFit="cover"
       />
 
-      <View className="px-8">
+      <View className="px-8 z-20">
         <AppText className="text-3xl font-outfitSemiBold text-center">
           Biodata
         </AppText>

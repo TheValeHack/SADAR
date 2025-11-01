@@ -20,7 +20,7 @@ module.exports = {
           pr10: '#D7F3FF',
           pr20: '#B6E9FF',
           pr30: '#84D3F5',
-          pr40: '#6CAFCC',
+          pr40: '#78C2E3',
           pr50: '#6CAFCC',
           pr60: '#5F93A9',
           pr70: '#4F7F93',
