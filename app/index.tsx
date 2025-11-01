@@ -1,7 +1,7 @@
-import KelaskuPage from "./kelasku";
+import NotifikasiPage from "./notifikasi";
 
 export default function Index() {
   return (
-    <KelaskuPage />
+    <NotifikasiPage />
   );
 }
