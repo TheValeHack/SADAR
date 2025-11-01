@@ -51,7 +51,6 @@ export default function HomePage() {
         style={{ width: "100%", height: 400, position: "absolute", top: 0 }}
         contentFit="cover"
       />
-
       <View className="ps-8 z-20">
         <WelcomeHeader name="Irfan Valerian" />
 

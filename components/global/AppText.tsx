@@ -6,5 +6,5 @@ interface AppTextProps extends TextProps {
 }
 
 export function AppText({ className,  ...props }: AppTextProps) {
-  return <Text {...props} className={`font-outfitMedium ${className}`} />;
+  return <Text {...props} className={`font-outfit ${className}`} />;
 }
