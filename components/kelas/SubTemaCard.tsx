@@ -14,7 +14,7 @@ export function SubTemaCard({ title, subTema, date, duration, onPress }: SubTema
   return (
     <TouchableOpacity
       onPress={onPress}
-      className="w-full border border-neutral-nr30 flex flex-row bg-neutral-nr00 rounded-xl px-3 pr-5 py-3 mb-6"
+      className="w-full border border-neutral-nr30 flex flex-row bg-neutral-nr00 rounded-xl px-3 pr-5 py-3 mb-4"
       activeOpacity={0.8}
     >
       <View className="flex justify-center items-center">

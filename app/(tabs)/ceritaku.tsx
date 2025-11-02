@@ -46,7 +46,7 @@ export default function CeritakuPage() {
 
         <View className="mt-8">
           {progressItems.map((item) => (
-            <ProgressItemCard className="w-full mb-6" key={item.id} {...item} />
+            <ProgressItemCard className="w-full mb-4" key={item.id} {...item} />
           ))}
         </View>
       </View>

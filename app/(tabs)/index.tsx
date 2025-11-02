@@ -60,7 +60,7 @@ export default function HomePage() {
         <View className="mt-6">
           <HorizontalList>
             {progressItems.map((item) => (
-              <ProgressItemCard className="w-[80vw] mr-5" key={item.id} {...item} />
+              <ProgressItemCard className="w-[80vw] mr-4" key={item.id} {...item} />
             ))}
           </HorizontalList>
         </View>
@@ -69,7 +69,7 @@ export default function HomePage() {
         <View className="mt-6">
           <HorizontalList>
             {recentClasses.map((kelas) => (
-              <ClassCard className="w-[40vw] mr-5" key={kelas.id} {...kelas} />
+              <ClassCard className="w-[40vw] mr-4" key={kelas.id} {...kelas} />
             ))}
           </HorizontalList>
         </View>

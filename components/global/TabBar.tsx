@@ -16,7 +16,7 @@ export default function TabBar({ state, descriptors, navigation }: BottomTabBarP
   };
 
   return (
-    <View className="flex-row h-24 border border-t border-neutral-nr30 rounded-t-lg bg-neutral-nr00">
+    <View className="flex-row h-20 border border-t border-b-0 border-neutral-nr30 rounded-t-lg bg-neutral-nr00">
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label: any =

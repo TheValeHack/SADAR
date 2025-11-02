@@ -3,11 +3,29 @@ import AppButton from "@/components/global/AppButton";
 import { AppText } from "@/components/global/AppText";
 import Layout from "@/components/layout/Layout";
 import { Image } from "expo-image";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
 
 export default function SubtemaDetailPage() {
-  const [learningType, setLearningType] = useState<string | null>(null);
+  const router = useRouter();
+  const [learningType, setLearningType] = useState<string | null>("visual");
+  const { subtemaId } = useLocalSearchParams();
+
+  const handleStart = () => {
+    if (!learningType) return;
+
+    let path = "";
+    if (learningType === "visual") {
+      path = `/kelas-cerita/${subtemaId}/story-visual`;
+    } else if (learningType === "audio") {
+      path = `/kelas-cerita/${subtemaId}/story-audio`;
+    } else if (learningType === "kinestetik") {
+      path = `/kelas-cerita/${subtemaId}/story-kinestetik`;
+    }
+
+    router.push(path as any);
+  };
 
   return (
     <Layout className="py-16">
@@ -33,7 +51,7 @@ export default function SubtemaDetailPage() {
             </AppText>
           <LearningTypeSelector scaleSelector onSelect={(val) => setLearningType(val)} />
 
-          <AppButton className="mt-8">Mulai Cerita</AppButton>
+          <AppButton onPress={handleStart} className="mt-8">Mulai Cerita</AppButton>
         </View>
       </View>
         <View className="w-full h-[60vh] absolute bottom-0">

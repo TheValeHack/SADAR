@@ -25,10 +25,7 @@ export default function KelasDetailPage() {
     ];
 
     const handleSubTemaPress = (id: number) => {
-        router.push({
-        pathname: "/subtema/[subtemaId]",
-        params: { subtemaId: String(id) },
-        });
+        router.push(`/kelas-cerita/${id}`);
     };
 
     return (
@@ -69,7 +66,6 @@ export default function KelasDetailPage() {
             </View>
         </ScrollView>
 
-        {/* Bottom Grass */}
         <Image
             source={require("@/assets/images/grass.png")}
             style={{

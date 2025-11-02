@@ -32,7 +32,7 @@ export default function NotifikasiItem({
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.8}
-      className="w-full border border-primary-pr70 flex flex-row bg-primary-pr10 rounded-xl px-3 py-3 mb-6"
+      className="w-full border border-primary-pr70 flex flex-row bg-primary-pr10 rounded-xl px-3 py-3 mb-4"
     >
       <View className="flex justify-center items-center">
         <Image
