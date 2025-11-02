@@ -1,10 +1,12 @@
 import { AppText } from "@/components/global/AppText";
-import ClassCard from "@/components/home/ClassCard";
+import ClassCard from "@/components/kelas/ClassCard";
 import Layout from "@/components/layout/Layout";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import { View } from "react-native";
 
 export default function KelaskuPage() {
+  const router = useRouter();
   const recentClasses = [
     {
       id: 1,
@@ -41,7 +43,7 @@ export default function KelaskuPage() {
         <View className="mt-8 flex flex-row flex-wrap justify-between">
           {recentClasses.map((kelas) => (
             <View key={kelas.id} className="w-[48%] mb-4">
-              <ClassCard {...kelas} />
+              <ClassCard {...kelas} onPress={() => router.navigate("/kelas/12")} />
             </View>
           ))}
         </View>

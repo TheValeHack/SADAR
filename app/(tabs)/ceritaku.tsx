@@ -1,5 +1,5 @@
+import ProgressItemCard from "@/components/ceritaku/ProgressItemCard";
 import { AppText } from "@/components/global/AppText";
-import ProgressItemCard from "@/components/home/ProgressItemCard";
 import Layout from "@/components/layout/Layout";
 import { Image } from "expo-image";
 import { View } from "react-native";

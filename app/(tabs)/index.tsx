@@ -1,8 +1,8 @@
-import ClassCard from "@/components/home/ClassCard";
+import ProgressItemCard from "@/components/ceritaku/ProgressItemCard";
 import HorizontalList from "@/components/home/HorizontalList";
-import ProgressItemCard from "@/components/home/ProgressItemCard";
 import SectionHeader from "@/components/home/SectionHeader";
 import WelcomeHeader from "@/components/home/WelcomeHeader";
+import ClassCard from "@/components/kelas/ClassCard";
 import Layout from "@/components/layout/Layout";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
