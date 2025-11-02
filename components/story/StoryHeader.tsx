@@ -2,10 +2,17 @@ import { AppText } from "@/components/global/AppText";
 import { Image } from "expo-image";
 import { View } from "react-native";
 
-export function StoryHeader({ title, image }: { title: string; image: any }) {
+interface StoryHeaderProps {
+    desc?: string;
+    title: string; 
+    image: any
+}
+
+export function StoryHeader({ desc, title, image }: StoryHeaderProps) {
   return (
     <View>
       <AppText className="text-2xl font-outfitSemiBold text-center">{title}</AppText>
+      { desc ? <AppText className="mt-3 text-lg text-center">{desc}</AppText> : <></>}
       <Image
         source={image}
         style={{

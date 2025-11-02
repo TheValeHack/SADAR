@@ -1,4 +1,7 @@
+import { AppText } from "@/components/global/AppText";
 import Layout from "@/components/layout/Layout";
+import { ChoiceItem } from "@/components/story/ChoiceItem";
+import { GameInviteContent } from "@/components/story/GameInviteContent";
 import { StoryBottomBar } from "@/components/story/StoryBottomBar";
 import { StoryDialog } from "@/components/story/StoryDialog";
 import { StoryGameModal } from "@/components/story/StoryGameModal";
@@ -14,6 +17,17 @@ export default function StoryVisualPage() {
     const router = useRouter();
     const [page, setPage] = useState(1);
     const [showModal, setShowModal] = useState(false);
+    const [modalType, setModalType] = useState<"invite" | "choice">("choice");
+    const choices = [
+              {
+                image: require("@/assets/images/rabbit-happy.png"),
+                label: "Berhenti bertengkar",
+              },
+              {
+                image: require("@/assets/images/rabbit-mad.png"),
+                label: "Terus bertengkar",
+              },
+            ]
 
     const handleNext = () => {
        setShowModal(true)
@@ -62,8 +76,28 @@ export default function StoryVisualPage() {
         <StoryGameModal
             visible={showModal}
             onClose={() => setShowModal(false)}
-            onStartGame={handleStartGame}
-        />
-        </SafeAreaView>
+        >
+            {modalType === "invite" ? (
+            <GameInviteContent onStartGame={() => console.log("Start game")} />
+            ) : (
+                <View>
+                  <AppText className="text-2xl font-outfitSemiBold text-center mb-8">
+                    Pilih apa yang dilakukan kelinci selanjutnya
+                  </AppText>
+            
+                  <View className="flex flex-row justify-between w-full">
+                    {choices.map((choice, index) => (
+                      <ChoiceItem
+                        key={index}
+                        image={choice.image}
+                        label={choice.label}
+                        onSelect={() => {}}
+                      />
+                    ))}
+                  </View>
+                </View>
+            )}
+        </StoryGameModal>
+    </SafeAreaView>
     );
     }

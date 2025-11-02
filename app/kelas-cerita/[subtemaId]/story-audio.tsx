@@ -1,23 +1,54 @@
 import AppButton from "@/components/global/AppButton";
-import { AppText } from "@/components/global/AppText";
 import Layout from "@/components/layout/Layout";
-import { useState } from "react";
+import { StoryHeader } from "@/components/story/StoryHeader";
+import { StorySongSection } from "@/components/story/StorySongSection";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function StoryAudioPage() {
-  const [learningType, setLearningType] = useState<string | null>(null);
+  const { subtemaId } = useLocalSearchParams();
+  const router = useRouter();
+
+  const handlePlay = () => {
+    console.log("Play audio for", subtemaId);
+  };
+
+  const handleNext = () => {
+    console.log("Next audio section");
+  };
+
+  const handlePrev = () => {
+    console.log("Previous audio section");
+  };
+
+  const handleFinish = () => {
+    router.push(`/kelas-cerita/${subtemaId}/halaman-2`);
+  };
 
   return (
-    <Layout className="py-16">
-      <View className="px-8 z-20">
-        <AppText className="text-3xl font-outfitSemiBold text-center">
-          Perbedaan Pertumbuhan Tumbuhan dan Hewan (audio)
-        </AppText>
+    <SafeAreaView edges={["bottom", "left", "right"]} className="flex-1 bg-white">
+      <Layout className="py-16 flex-1">
+        <View className="px-8 z-20">
+          <StoryHeader
+            title="Bantu kelinci mengingat apa kelebihan yang sudah disebutkan"
+            desc="Putar dan nyanyikan lagu di bawah ini"
+            image={require("@/assets/images/rabbit-with-kid.png")}
+          />
 
-        <View className="mt-16">
-          <AppButton className="mt-8">Mulai Cerita</AppButton>
+          <StorySongSection
+            title="Kelinciku"
+            progress={0.4}
+            onPlay={handlePlay}
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
         </View>
+      </Layout>
+
+      <View className="px-8 mb-8">
+        <AppButton onPress={handleFinish}>Selesai mendengarkan lagu</AppButton>
       </View>
-    </Layout>
+    </SafeAreaView>
   );
 }
