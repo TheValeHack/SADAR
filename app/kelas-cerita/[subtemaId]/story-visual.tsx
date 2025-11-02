@@ -4,11 +4,14 @@ import { StoryDialog } from "@/components/story/StoryDialog";
 import { StoryGameModal } from "@/components/story/StoryGameModal";
 import { StoryHeader } from "@/components/story/StoryHeader";
 import { StoryParagraph } from "@/components/story/StoryParagraph";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function StoryVisualage() {
+export default function StoryVisualPage() {
+    const { subtemaId } = useLocalSearchParams();
+    const router = useRouter();
     const [page, setPage] = useState(1);
     const [showModal, setShowModal] = useState(false);
 
@@ -18,6 +21,7 @@ export default function StoryVisualage() {
 
     const handleStartGame = () => {
         setShowModal(false);
+        router.push(`/kelas-cerita/${subtemaId}/game`);
     };
 
     return (

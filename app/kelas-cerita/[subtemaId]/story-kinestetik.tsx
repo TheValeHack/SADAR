@@ -4,7 +4,7 @@ import Layout from "@/components/layout/Layout";
 import { useState } from "react";
 import { View } from "react-native";
 
-export default function StoryVisualage() {
+export default function StoryKinestetikPage() {
   const [learningType, setLearningType] = useState<string | null>(null);
 
   return (
