@@ -21,11 +21,12 @@ const types = [
 ];
 
 interface Props {
+  scaleSelector?: boolean;
   onSelect: (value: string) => void;
 }
 
-export function LearningTypeSelector({ onSelect }: Props) {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
+export function LearningTypeSelector({ onSelect, scaleSelector }: Props) {
+  const [selectedType, setSelectedType] = useState<string | null>("visual");
 
   const handleSelect = (key: string) => {
     setSelectedType(key);
@@ -36,6 +37,7 @@ export function LearningTypeSelector({ onSelect }: Props) {
     <View className="flex flex-row justify-between mb-6">
       {types.map((type) => (
         <LearningTypeOption
+          scaleSelector={scaleSelector}
           key={type.key}
           image={type.image}
           label={type.label}

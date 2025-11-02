@@ -2,20 +2,24 @@ import { Image } from "expo-image";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
 interface Props {
+  scaleSelector?: boolean;
   image: any;
   label: string;
   selected: boolean;
   onPress: () => void;
 }
 
-export function LearningTypeOption({ image, label, selected, onPress }: Props) {
+export function LearningTypeOption({ scaleSelector, image, label, selected, onPress }: Props) {
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.8}
       style={[
         styles.container,
-        { borderColor: selected ? "#000000" : "#999999" }, 
+        { 
+          borderColor: selected ? "#000000" : "#999999",
+          transform: selected && scaleSelector? [{ scale: 1.2 }] : [{ scale: 0.9 }],
+         }, 
       ]}
     >
       <Image source={image} style={styles.image} contentFit="cover" />
