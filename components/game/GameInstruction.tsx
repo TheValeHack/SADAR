@@ -12,7 +12,7 @@ export default function GameInstruction({ title, subtitle }: Props) {
       <AppText className="text-2xl font-outfitSemiBold text-center mb-4">
         {title}
       </AppText>
-      <AppText className="text-lg text-center mb-10">{subtitle}</AppText>
+      <AppText className="text-lg text-center mb-6">{subtitle}</AppText>
     </View>
   );
 }

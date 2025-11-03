@@ -3,12 +3,13 @@ import { Image } from "expo-image";
 import { View } from "react-native";
 
 interface StoryHeaderProps {
+    hideImage?: boolean;
     desc?: string;
     title: string; 
     image: any
 }
 
-export function StoryHeader({ desc, title, image }: StoryHeaderProps) {
+export function StoryHeader({ hideImage, desc, title, image }: StoryHeaderProps) {
   return (
     <View>
       <AppText className="text-2xl font-outfitSemiBold text-center">{title}</AppText>
@@ -20,6 +21,7 @@ export function StoryHeader({ desc, title, image }: StoryHeaderProps) {
           height: 300,
           marginTop: 16,
           borderRadius: 12,
+          display: hideImage ? "none" : "flex"
         }}
         contentFit="cover"
       />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { LearningTypeOption } from "./LearningTypeOption";
 
@@ -22,11 +22,22 @@ const types = [
 
 interface Props {
   scaleSelector?: boolean;
+  scaleSize?: number;
   onSelect: (value: string) => void;
+  initialSelectedType: string | null;
 }
 
-export function LearningTypeSelector({ onSelect, scaleSelector }: Props) {
-  const [selectedType, setSelectedType] = useState<string | null>("visual");
+export function LearningTypeSelector({
+  onSelect,
+  scaleSelector,
+  scaleSize,
+  initialSelectedType,
+}: Props) {
+  const [selectedType, setSelectedType] = useState<string | null>(initialSelectedType);
+
+  useEffect(() => {
+    setSelectedType(initialSelectedType);
+  }, [initialSelectedType]);
 
   const handleSelect = (key: string) => {
     setSelectedType(key);
@@ -38,6 +49,7 @@ export function LearningTypeSelector({ onSelect, scaleSelector }: Props) {
       {types.map((type) => (
         <LearningTypeOption
           scaleSelector={scaleSelector}
+          scaleSize={scaleSize}
           key={type.key}
           image={type.image}
           label={type.label}

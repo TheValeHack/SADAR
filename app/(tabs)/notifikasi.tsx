@@ -1,4 +1,4 @@
-import { AppText } from "@/components/global/AppText";
+import AppBar from "@/components/global/AppBar";
 import Layout from "@/components/layout/Layout";
 import NotifikasiItem from "@/components/notifikasi/NotifikasiItem";
 import { Image } from "expo-image";
@@ -27,41 +27,43 @@ export default function NotifikasiPage() {
   ];
 
   return (
-    <Layout className="py-16">
-      <Image
-        source={require("@/assets/images/cloud.png")}
-        style={{
-          width: "100%",
-          height: 150,
-          position: "absolute",
-          top: 0,
-        }}
-        contentFit="cover"
-      />
+    <>
+      <AppBar
+          className="mt-28"
+          title="Notifikasi"
+        />
+      <Layout className="pt-36 pb-16">
+        <Image
+          source={require("@/assets/images/cloud.png")}
+          style={{
+            width: "100%",
+            height: 150,
+            position: "absolute",
+            top: 0,
+          }}
+          contentFit="cover"
+        />
 
-      <View className="px-8 z-20">
-        <AppText className="text-3xl font-outfitSemiBold text-center">
-          Notifikasi
-        </AppText>
-
-        <View className="mt-8">
-          {notifications.map((notif) => (
-            <NotifikasiItem key={notif.id} {...notif} />
-          ))}
+        <View className="px-8 z-20">
+          <View className="mt-8">
+            {notifications.map((notif) => (
+              <NotifikasiItem key={notif.id} {...notif} />
+            ))}
+          </View>
         </View>
-      </View>
 
-      <Image
-        source={require("@/assets/images/mountain.png")}
-        style={{
-          width: "100%",
-          height: 260,
-          position: "absolute",
-          bottom: 0,
-          backgroundColor: "#00"
-        }}
-        contentFit="cover"
-      />
-    </Layout>
+        <Image
+          source={require("@/assets/images/mountain.png")}
+          style={{
+            width: "100%",
+            height: 260,
+            position: "absolute",
+            bottom: 0,
+            backgroundColor: "#00"
+          }}
+          contentFit="cover"
+        />
+      </Layout>
+    </>
   );
 }

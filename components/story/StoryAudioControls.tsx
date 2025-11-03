@@ -21,7 +21,7 @@ export const StoryAudioControls = ({ onPlay, onNext, onPrev }: StoryAudioControl
         <TouchableOpacity
           key={i}
           onPress={btn.onPress}
-          className="bg-primary-pr30 w-12 h-12 flex items-center justify-center rounded-full"
+          className="bg-primary-pr30 w-14 h-14 flex items-center justify-center rounded-full"
         >
           <Image source={btn.icon} style={{ width: btn.size, height: btn.size }} contentFit="contain" />
         </TouchableOpacity>

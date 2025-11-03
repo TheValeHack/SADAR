@@ -1,3 +1,4 @@
+import AppBar from "@/components/global/AppBar";
 import AppButton from "@/components/global/AppButton";
 import Layout from "@/components/layout/Layout";
 import { StoryHeader } from "@/components/story/StoryHeader";
@@ -28,7 +29,11 @@ export default function StoryAudioPage() {
 
   return (
     <SafeAreaView edges={["bottom", "left", "right"]} className="flex-1 bg-white">
-      <Layout className="py-16 flex-1">
+      <AppBar
+            className="mt-16"
+            title=""
+        />
+      <Layout className="pt-28 pb-16 flex-1">
         <View className="px-8 z-20">
           <StoryHeader
             title="Bantu kelinci mengingat apa kelebihan yang sudah disebutkan"

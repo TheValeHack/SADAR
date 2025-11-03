@@ -3,13 +3,14 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 
 interface Props {
   scaleSelector?: boolean;
+  scaleSize?: number;
   image: any;
   label: string;
   selected: boolean;
   onPress: () => void;
 }
 
-export function LearningTypeOption({ scaleSelector, image, label, selected, onPress }: Props) {
+export function LearningTypeOption({ scaleSize, scaleSelector, image, label, selected, onPress }: Props) {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -18,7 +19,7 @@ export function LearningTypeOption({ scaleSelector, image, label, selected, onPr
         styles.container,
         { 
           borderColor: selected ? "#000000" : "#999999",
-          transform: selected && scaleSelector? [{ scale: 1.2 }] : [{ scale: 0.9 }],
+          transform: selected && scaleSelector? [{ scale: scaleSize || 1.2 }] : [{ scale: 0.9 }],
          }, 
       ]}
     >

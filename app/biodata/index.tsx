@@ -5,12 +5,60 @@ import { AppText } from "@/components/global/AppText";
 import AppTextInput from "@/components/global/AppTextInput";
 import Layout from "@/components/layout/Layout";
 import { Image } from "expo-image";
-import { useState } from "react";
-import { View } from "react-native";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { useEffect, useState } from "react";
+import { Alert, TouchableOpacity, View } from "react-native";
+
+
+const typeMap: { [key: string]: string } = {
+    'visual': 'Visual',
+    'audio': 'Auditori',
+    'kinestetik': 'Kinestetik',
+};
 
 export default function BiodataPage() {
+  const params = useLocalSearchParams();
+  const router = useRouter();
+  const [name, setName] = useState<string>('');
   const [selectedClass, setSelectedClass] = useState<string>("kelas1");
+  const [iqScore, setIqScore] = useState<string>('');
   const [learningType, setLearningType] = useState<string | null>(null);
+  const [showQuizResultModal, setShowQuizResultModal] = useState(false);
+
+  useEffect(() => {
+    const resultType = params.resultType as string | undefined;
+    if (resultType) {
+      const receivedTypeKey = resultType.toLowerCase();
+
+      if (Object.keys(typeMap).includes(receivedTypeKey)) {
+        setLearningType(receivedTypeKey);
+        const typeLabel = typeMap[receivedTypeKey];
+
+        Alert.alert(
+          "Tes Selesai 🎉",
+          `Tipe belajar Anda telah diatur menjadi: ${typeLabel}.`,
+          [{ text: "OK" }]
+        );
+      }
+    }
+  }, [params.resultType]);
+
+
+  const handleStartQuiz = () => {
+      router.push('/tes-tipe-belajar'); 
+  };
+
+  const handleMasuk = () => {
+      if (!name || !learningType) {
+          Alert.alert("Perhatian", "Nama dan Tipe Belajar harus diisi sebelum Masuk.");
+          return;
+      }
+
+      console.log("Nama:", name);
+      console.log("Kelas:", selectedClass);
+      console.log("IQ:", iqScore);
+      console.log("Tipe Belajar:", learningType);
+  };
 
   return (
     <Layout className="py-16">
@@ -38,6 +86,8 @@ export default function BiodataPage() {
             className="mb-6"
             label="Nama"
             placeholder="Masukkan nama kamu"
+            value={name}
+            onChangeText={setName}
           />
 
           <AppPickerInput
@@ -57,18 +107,22 @@ export default function BiodataPage() {
             label="IQ (Opsional)"
             placeholder="Masukkan skor IQ kamu"
             keyboardType="numeric"
+            value={iqScore}
+            onChangeText={setIqScore}
           />
 
-          <AppText className="mb-2 text-lg text-neutral-nr60">
+          <AppText className="mb-4 text-lg text-neutral-nr60">
             Pilih salah satu tipe belajar kamu
           </AppText>
-          <LearningTypeSelector onSelect={(val) => setLearningType(val)} />
+          <LearningTypeSelector initialSelectedType={learningType} scaleSize={1.02} scaleSelector onSelect={(val) => setLearningType(val)} />
 
-          <AppText className="text-base text-primary-pr60 underline text-center">
-            aku belum tahu tipe belajarku
-          </AppText>
+          <TouchableOpacity onPress={handleStartQuiz}>
+              <AppText className="text-base text-primary-pr60 underline text-center mt-3">
+                  aku belum tahu tipe belajarku
+              </AppText>
+          </TouchableOpacity>
 
-          <AppButton className="mt-8">Masuk</AppButton>
+          <AppButton className="mt-8" onPress={handleMasuk}>Masuk</AppButton>
         </View>
       </View>
 

@@ -1,3 +1,4 @@
+import AppBar from "@/components/global/AppBar";
 import { KelasHeader } from "@/components/kelas/KelasHeader";
 import { SubTemaCard } from "@/components/kelas/SubTemaCard";
 import Layout from "@/components/layout/Layout";
@@ -29,53 +30,62 @@ export default function KelasDetailPage() {
     };
 
     return (
-        <Layout className="py-16">
-        <Image
-            source={require("@/assets/images/kelas-detail-banner-bg.png")}
-            style={{
-            width: "100%",
-            height: 310,
-            position: "absolute",
-            top: 0,
-            borderBottomLeftRadius: 24,
-            borderBottomRightRadius: 24,
-            }}
-            contentFit="cover"
-        />
-
-        <ScrollView showsVerticalScrollIndicator={false}>
-            <View className="h-[240px]" />
-
-            <KelasHeader
-            tema="Tema 1"
-            judul="Perkembangan Makhluk Hidup"
-            subTemaCount={subTemas.length}
+        <>
+            <AppBar
+                className="mt-28"
+                style={{
+                    backgroundColor: "transparent"
+                }}
+                title=""
+            />
+            <Layout className="py-16">
+            <Image
+                source={require("@/assets/images/kelas-detail-banner-bg.png")}
+                style={{
+                width: "100%",
+                height: 310,
+                position: "absolute",
+                top: 0,
+                borderBottomLeftRadius: 24,
+                borderBottomRightRadius: 24,
+                }}
+                contentFit="cover"
             />
 
-            <View className="mt-10 px-8">
-            {subTemas.map((item) => (
-                <SubTemaCard
-                key={item.id}
-                subTema={item.subTema}
-                title={item.title}
-                date={item.date}
-                duration={item.duration}
-                onPress={() => handleSubTemaPress(item.id)}
-                />
-            ))}
-            </View>
-        </ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View className="h-[240px]" />
 
-        <Image
-            source={require("@/assets/images/grass.png")}
-            style={{
-            width: "100%",
-            height: 150,
-            position: "absolute",
-            bottom: 0,
-            }}
-            contentFit="cover"
-        />
-        </Layout>
+                <KelasHeader
+                tema="Tema 1"
+                judul="Perkembangan Makhluk Hidup"
+                subTemaCount={subTemas.length}
+                />
+
+                <View className="mt-10 px-8">
+                {subTemas.map((item) => (
+                    <SubTemaCard
+                    key={item.id}
+                    subTema={item.subTema}
+                    title={item.title}
+                    date={item.date}
+                    duration={item.duration}
+                    onPress={() => handleSubTemaPress(item.id)}
+                    />
+                ))}
+                </View>
+            </ScrollView>
+
+            <Image
+                source={require("@/assets/images/grass.png")}
+                style={{
+                width: "100%",
+                height: 150,
+                position: "absolute",
+                bottom: 0,
+                }}
+                contentFit="cover"
+            />
+            </Layout>
+        </>
     );
 }
