@@ -6,12 +6,19 @@ interface StoryAudioControlsProps {
   onPlay?: () => void;
   onNext?: () => void;
   onPrev?: () => void;
+  isPlaying?: boolean;
 }
 
-export const StoryAudioControls = ({ onPlay, onNext, onPrev }: StoryAudioControlsProps) => {
+export const StoryAudioControls = ({ onPlay, onNext, onPrev, isPlaying }: StoryAudioControlsProps) => {
   const buttons = [
     { icon: require("@/assets/icons/backward.svg"), onPress: onPrev, size: 24 },
-    { icon: require("@/assets/icons/play.svg"), onPress: onPlay, size: 12 },
+    {
+      icon: isPlaying
+        ? require("@/assets/icons/pause.svg")
+        : require("@/assets/icons/play.svg"),
+      onPress: onPlay,
+      size: 18,
+    },
     { icon: require("@/assets/icons/forward.svg"), onPress: onNext, size: 24 },
   ];
 

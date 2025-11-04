@@ -22,6 +22,10 @@ export default function ProgressBar({ circle, progress, label }: ProgressBarProp
             !circle || 
             <View 
               className="w-6 h-6 bg-primary-pr40 rounded-full"
+              style={{
+                position: "absolute",
+                right: -10
+              }}
             />
           }
         </View>
